@@ -38,9 +38,9 @@ class Solution(object):
 
         return c
 '''This code attempts to find the minimum price and then calculate the profit by finding
-the maximum price after the minimum. However, it fails to handle cases where the 
-minimum price is at the end of the list or other edge cases. As a result, it passes 151 
-test cases, but it doesn't fully solve the problem, leading to incorrect results for some scenarios.'''
+ the maximum price after the minimum. However, it fails to handle cases where the 
+ minimum price is at the end of the list or other edge cases. As a result, it passes 151 
+ test cases, but it doesn't fully solve the problem, leading to incorrect results for some scenarios.'''
 
 #2nd try 
 class Solution(object):
