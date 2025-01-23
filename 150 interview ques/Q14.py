@@ -1,5 +1,5 @@
 '''https://leetcode.com/problems/jump-game/description/?envType=study-plan-v2&envId=top-interview-150'''
-#Try 1 (1 he 33 min ) 
+#Try 1 (1 hr 33 min ) 
 nums = []
 i = 0
 if len(nums) == 1:
