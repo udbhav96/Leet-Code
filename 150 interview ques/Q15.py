@@ -1,3 +1,4 @@
+'''https://leetcode.com/problems/valid-sudoku/description/?envType=study-plan-v2&envId=top-interview-150'''
 #try 1
 a = [["5","3",".",".","7",".",".",".","."]
 ,["6",".",".","1","9","5",".",".","."]
