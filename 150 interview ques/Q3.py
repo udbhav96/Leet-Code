@@ -12,5 +12,4 @@ class Solution(object):
         nums[k] = nums[-1]  
         k += 1
         return k 
-print(removeDuplicates(nums))
     
