@@ -29,7 +29,7 @@ if a == b:
 else: 
     print(False)
 '''Error : i used the swaping which is not  same as reversed '''
-#Try 2
+#Try 2 Final (50 min)
 class Solution(object):
     def isPalindrome(self, s):
         """
@@ -49,3 +49,16 @@ class Solution(object):
               r += i
         return r == r[::-1]
 '''Oki i had done it , and wasted my 1'''
+#Optamize Code
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        i, j = 0, len(s) - 1
+        while i < j:
+            while i < j and not s[i].isalnum(): i += 1
+            while i < j and not s[j].isalnum(): j -= 1
+
+            if s[i].lower() != s[j].lower(): return False
+            i += 1
+            j -= 1
+
+        return True
