@@ -59,7 +59,7 @@ class Solution(object):
         return result
 #Good solution 
 class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
+    def longestCommonPrefix(self, strs: str[str]) -> str:
         if not strs:
             return ""
         new = ""
