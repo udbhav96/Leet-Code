@@ -1,3 +1,4 @@
+/*https://leetcode.com/problems/linked-list-cycle/?envType=study-plan-v2&envId=top-interview-150*/
 #include <stdio.h>
 #include <stdbool.h>  // ✅ Include this for bool
 
