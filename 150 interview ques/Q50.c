@@ -1,31 +1,37 @@
-/*https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/?envType=study-plan-v2&envId=top-interview-150*/
-#include <stddef.h>
-struct ListNode {
-    int val;
-    struct ListNode *next;
-  };
-  struct ListNode* deleteDuplicates(struct ListNode* head) {
-    struct ListNode dummy;
-    dummy.next = head;
+/*https://leetcode.com/problems/powx-n/?envType=study-plan-v2&envId=top-interview-150*/
+//Try 1 (20min)
+double myPow(double x, int n) {
+    double a = 1;
 
-    struct ListNode* prev = &dummy;
-
-    while (head != NULL) {
-        if (head->next != NULL && head->val == head->next->val) {
-            int dupVal = head->val;
-
-            while (head != NULL && head->val == dupVal) {
-                struct ListNode* temp = head;
-                head = head->next;
-                free(temp);
-            }
-
-            prev->next = head;
-        } else {
-            prev = head;
-            head = head->next;
+    if (n > 0) {
+        for (int i = 0; i < n; i++) {
+            a = a * x;
+        }
+    } else {
+        for (int i = 0; i < -n; i++) {
+            a = a * (1.0 / x);
         }
     }
 
-    return dummy.next;
+    return a;
 }
+//code is correct but not optimize complexity n
+//Try 2 Final(seen)
+double myPow(double x, int n) {
+    double res = 1;
+
+    while (n != 0) {
+        if (n % 2 != 0) {
+            if (n > 0)
+                res *= x;
+            else
+                res /= x;
+        }
+        x *= x;
+        n /= 2;
+    }
+
+    return res;
+}
+//Seen because buke lagi and niche dukan band hone wali complexity is low and better approch 
+

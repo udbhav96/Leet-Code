@@ -1,42 +1,75 @@
-'''https://leetcode.com/problems/jump-game/description/?envType=study-plan-v2&envId=top-interview-150'''
-#Try 1 (1 hr 33 min ) 
-nums = []
-i = 0
-if len(nums) == 1:
-  i = True
-else : 
-    while i < len(nums) :
-     i = nums[0]
-     
-     if i >= len(nums):  
-      i = True
-      break
-     elif nums[i] == 0 and len(nums) > 1:
-      i = False
-      break  
-     i = i + nums[i]  
-print(i)
-"This code isn't well-written, and I'll comment on it after reviewing it. If you continue with this approach, you're likely to encounter multiple runtime errors. The issue comes from introducing unnecessary variables. After sorting through 5 or 6 cases (which will likely fail), you'll encounter something like this, and eventually, you'll face a 'Time Exceeded' error, which proves that this approach is inefficient. Another major problem is that 'i' starts as an integer and is later changed to a boolean, which is poor practice. You should rethink your approach and try again.Just Fuck this code and try again"
-#try 2 (2 hr + 3-4 youtube tutorials)
+'''https://leetcode.com/problems/longest-common-prefix/?envType=study-plan-v2&envId=top-interview-150'''
+#Try 1 ( 20 min)
+strs = ["flower","flow","flight"]
+i = 0 
+a = []
+while i < len(strs):
+    j = i + 1 
+    k = len(strs) - 1
+    while j < k:
+        if strs[i][i] == strs[j][i] == strs[k][i]:
+            a.append(strs[i][i])
+            j += 1
+            k -= 1
+    i += 1
+    
+print(a)
+'''Too many error i am not going tell find yourself'''
+#Try 2 ( 20 min )
+strs = ["flower","flow","flight"]
+i = 0 
+j = 0 
+k = 0 
+a = []
+while i < len(strs)- 2 :
+    j = i + 1 
+    k = len(strs) -  1 - i
+    z = 0 
+    while j < k and k > 0:
+        if strs[i][z] == strs[j][z] == strs[k][z]:
+            a.append(strs[i][z])
+            z += 1
+        j += 1 
+        k += 1
+    i += 1
+
+'''Error  z is iterated all the way and not stoping , plz z stop '''
+#Try 3 Final and optimized code ( 45 min )
 class Solution(object):
-    def canJump(self, nums):
-        g = len(nums) - 1
-        for i in range(len(nums) - 1, -1, -1):
-            if i + nums[i] >= g:
-                g = i
-        return g == 0
-'''---> Objective:
-Determine if you can reach the last index of an array starting from the first index, given each element in the array represents your maximum jump length at that position.
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        a = []
+        z = 0  
 
----> Approach:
+        while z < len(strs[0]):  
+            char = strs[0][z]  
+            for word in strs:  
+                if z >= len(word) or word[z] != char:  
+                    return "".join(a)  
+            a.append(char)
+            z += 1  
 
-Greedy Algorithm:
-Start from the last index (goal = len(nums) - 1).
-Traverse the array backwards:
-If the current index can jump to or beyond the goal, update the goal to the current index.
-If the goal is reduced to 0, return True; otherwise, return False'''
+        result = ""
+        for char in a:
+            result += char  
 
+        return result
+#Good solution 
+class Solution:
+    def longestCommonPrefix(self, strs: str[str]) -> str:
+        if not strs:
+            return ""
+        new = ""
+        strs = sorted(strs)
+        first, last = strs[0], strs[-1]
+        for i in range(len(first)):
+            if i < len(last) and first[i] == last[i]:
+                new += first[i]
+            else:
+                break
+        return new
 
-
-
-
+    
